@@ -16,6 +16,13 @@
         app:iconSpaceReserved="false" />
 
     <com.drdisagree.pixellauncherenhanced.ui.preferences.SwitchPreference
+        android:defaultValue="false"
+        android:key="xposed_quicklaunch"
+        android:summary="@string/quick_launch_desc"
+        android:title="@string/quick_launch_title"
+        app:iconSpaceReserved="false" />
+
+    <com.drdisagree.pixellauncherenhanced.ui.preferences.SwitchPreference
         android:defaultValue="true"
         android:key="xposed_appdrawericonlabels"
         android:title="@string/app_drawer_icon_labels_title"
