@@ -65,3 +65,7 @@ dependencies {
     implementation(libs.circleimageview)
     implementation(libs.konfetti.xml)
 }
+
+tasks.register("printVersionName") {
+    println(android.defaultConfig.versionName)
+}
