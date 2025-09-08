@@ -1,6 +1,7 @@
 package com.drdisagree.pixellauncherenhanced.xposed.mods
 
 import android.content.Context
+import android.os.Build
 import com.drdisagree.pixellauncherenhanced.data.common.Constants.APP_DRAWER_GRID_COLUMNS
 import com.drdisagree.pixellauncherenhanced.data.common.Constants.APP_DRAWER_GRID_ROW_HEIGHT_MULTIPLIER
 import com.drdisagree.pixellauncherenhanced.data.common.Constants.DESKTOP_GRID_COLUMNS
@@ -9,6 +10,7 @@ import com.drdisagree.pixellauncherenhanced.xposed.ModPack
 import com.drdisagree.pixellauncherenhanced.xposed.mods.LauncherUtils.Companion.reloadLauncher
 import com.drdisagree.pixellauncherenhanced.xposed.mods.toolkit.XposedHook.Companion.findClass
 import com.drdisagree.pixellauncherenhanced.xposed.mods.toolkit.getField
+import com.drdisagree.pixellauncherenhanced.xposed.mods.toolkit.getFieldSilently
 import com.drdisagree.pixellauncherenhanced.xposed.mods.toolkit.hookConstructor
 import com.drdisagree.pixellauncherenhanced.xposed.mods.toolkit.hookMethod
 import com.drdisagree.pixellauncherenhanced.xposed.mods.toolkit.setField
@@ -86,16 +88,42 @@ class GridOptions (context: Context) : ModPack(context) {
             .runAfter { param ->
                 if (appDrawerGridRowHeightMultiplier == 1f) return@runAfter
 
-                val allAppsCellHeightPx = param.thisObject.getField("allAppsCellHeightPx") as Int
+                val allAppsCellHeightPx =
+                    param.thisObject.getFieldSilently("allAppsCellHeightPx") as? Int
                 val allAppsIconDrawablePaddingPx = 0
 
+                if (allAppsCellHeightPx != null) {
+                    param.thisObject.setField(
+                        "allAppsCellHeightPx",
+                        (allAppsCellHeightPx * appDrawerGridRowHeightMultiplier).roundToInt()
+                    )
+                    param.thisObject.setField(
+                        "allAppsIconDrawablePaddingPx",
+                        allAppsIconDrawablePaddingPx
+                    )
+                }
+            }
+
+        val allAppsProfileClass = findClass(
+            "com.android.launcher3.deviceprofile.AllAppsProfile",
+            suppressError = Build.VERSION.SDK_INT <= Build.VERSION_CODES.VANILLA_ICE_CREAM
+        )
+
+        allAppsProfileClass
+            .hookConstructor()
+            .runAfter { param ->
+                if (appDrawerGridRowHeightMultiplier == 1f) return@runAfter
+
+                val cellHeightPx = param.thisObject.getField("cellHeightPx") as Int
+                val iconDrawablePaddingPx = 0
+
                 param.thisObject.setField(
-                    "allAppsCellHeightPx",
-                    (allAppsCellHeightPx * appDrawerGridRowHeightMultiplier).roundToInt()
+                    "cellHeightPx",
+                    (cellHeightPx * appDrawerGridRowHeightMultiplier).roundToInt()
                 )
                 param.thisObject.setField(
-                    "allAppsIconDrawablePaddingPx",
-                    allAppsIconDrawablePaddingPx
+                    "iconDrawablePaddingPx",
+                    iconDrawablePaddingPx
                 )
             }
     }
