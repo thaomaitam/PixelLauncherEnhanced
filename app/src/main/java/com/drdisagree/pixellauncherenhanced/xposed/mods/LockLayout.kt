@@ -98,18 +98,33 @@ class LockLayout(context: Context) : ModPack(context) {
                 param.result = false
             }
 
-        optionsPopupViewClass
-            .hookMethod("openWidgets")
-            .runBefore { param ->
-                if (!lockLayout) return@runBefore
+        fun showLayoutLockedToast() {
+            Toast.makeText(
+                mContext,
+                modRes.getString(R.string.layout_is_locked),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
 
-                Toast.makeText(
-                    mContext,
-                    modRes.getString(R.string.layout_is_locked),
-                    Toast.LENGTH_SHORT
-                ).show()
+        try {
+            optionsPopupViewClass
+                .hookMethod("openWidgets")
+                .throwError()
+                .runBefore { param ->
+                    if (!lockLayout) return@runBefore
 
-                param.result = null
-            }
+                    showLayoutLockedToast()
+                    param.result = null
+                }
+        } catch (_: Throwable) {
+            optionsPopupViewClass
+                .hookMethod("onWidgetsClicked")
+                .runBefore { param ->
+                    if (!lockLayout) return@runBefore
+
+                    showLayoutLockedToast()
+                    param.result = false
+                }
+        }
     }
 }
