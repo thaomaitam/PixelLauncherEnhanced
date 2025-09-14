@@ -49,6 +49,18 @@
             app:iconSpaceReserved="false" />
 
         <com.drdisagree.pixellauncherenhanced.ui.preferences.SwitchPreference
+            android:defaultValue="false"
+            android:key="xposed_launcherdarkstatusbar"
+            android:title="@string/dark_launcher_statusbar_title"
+            app:iconSpaceReserved="false" />
+
+        <com.drdisagree.pixellauncherenhanced.ui.preferences.SwitchPreference
+            android:defaultValue="false"
+            android:key="xposed_launcherdarkpageindicator"
+            android:title="@string/dark_launcher_page_indicator_title"
+            app:iconSpaceReserved="false" />
+
+        <com.drdisagree.pixellauncherenhanced.ui.preferences.SwitchPreference
             android:defaultValue="true"
             android:key="xposed_desktopiconlabels"
             android:title="@string/desktop_icon_labels_title"
