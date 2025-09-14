@@ -12,10 +12,6 @@ import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
 
 class DarkStatusbar (context: Context) : ModPack(context) {
-    companion object {
-        const val UI_STATE_BASE_WINDOW = 0
-        const val FLAG_LIGHT_STATUS: Int = 1 shl 2
-    }
 
     private var darkStatusbarEnabled = false
 
@@ -29,26 +25,30 @@ class DarkStatusbar (context: Context) : ModPack(context) {
         }
     }
 
-    private fun forceDark(param: XC_MethodHook.MethodHookParam) {
-        if (!darkStatusbarEnabled) {
-            return
+    override fun handleLoadPackage(loadPackageParam: LoadPackageParam) {
+        fun forceDark(param: XC_MethodHook.MethodHookParam) {
+            if (!darkStatusbarEnabled) return
+
+            param.thisObject
+                .callMethod("getSystemUiController")
+                .callMethod("updateUiState", UI_STATE_BASE_WINDOW, FLAG_LIGHT_STATUS)
         }
 
-        param.thisObject.callMethod("getSystemUiController")
-            .callMethod("updateUiState", UI_STATE_BASE_WINDOW, FLAG_LIGHT_STATUS)
-    }
-
-    override fun handleLoadPackage(loadPackageParam: LoadPackageParam) {
-        val launcherClass = findClass("com.android.launcher3.Launcher")!!
+        val launcherClass = findClass("com.android.launcher3.Launcher")
 
         launcherClass
             .hookMethod("onCreate")
             .runAfter(::forceDark)
 
-        val recentsActivityClass = findClass("com.android.quickstep.RecentsActivity")!!
+        val recentsActivityClass = findClass("com.android.quickstep.RecentsActivity")
 
         recentsActivityClass
             .hookMethod("onCreate")
             .runAfter(::forceDark)
+    }
+
+    companion object {
+        const val UI_STATE_BASE_WINDOW = 0
+        const val FLAG_LIGHT_STATUS: Int = 1 shl 2
     }
 }
