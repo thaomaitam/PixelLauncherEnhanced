@@ -55,6 +55,8 @@
     <string name="hide_launcher_statusbar_desc">顯示狀態欄時展開快速設定</string>
     <string name="hide_launcher_top_shadow_title">隱藏上部陰影</string>
     <string name="hide_launcher_top_shadow_desc">從主畫面移除上部陰影</string>
+    <string name="quick_launch_title">Quick Launch</string>
+    <string name="quick_launch_desc">Launch apps directly from search by pressing enter</string>
     <string name="app_drawer_icon_labels_title">應用程式抽屜中的圖示名稱</string>
     <string name="disable_recents_live_tile_title">停用 Recents Live</string>
     <string name="disable_recents_live_tile_desc">若總覽過於卡頓可啟用以停用 Recents Live</string>

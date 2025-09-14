@@ -55,6 +55,8 @@
     <string name="hide_launcher_statusbar_desc">Durum çubuğu gizlenmemişse hızlı ayarlar panelini bir kez genişletin</string>
     <string name="hide_launcher_top_shadow_title">Üst gölgeyi gizle</string>
     <string name="hide_launcher_top_shadow_desc">Ana ekrandan üst gölgeyi kaldır</string>
+    <string name="quick_launch_title">Hızlı Başlat</string>
+    <string name="quick_launch_desc">Enter tuşuna basarak uygulamaları aramadan doğrudan başlatın</string>
     <string name="app_drawer_icon_labels_title">Uygulama çekmecesindeki simge etiketleri</string>
     <string name="disable_recents_live_tile_title">Son kullanılanlar canlı döşemesini devre dışı bırak</string>
     <string name="disable_recents_live_tile_desc">Son kullanılanlar ekranı hatalıysa canlı döşemeyi devre dışı bırak</string>
