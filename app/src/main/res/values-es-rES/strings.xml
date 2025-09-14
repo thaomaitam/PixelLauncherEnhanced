@@ -55,6 +55,8 @@
     <string name="hide_launcher_statusbar_desc">Expandir panel de ajustes rápidos una vez si la barra de estado no está oculta</string>
     <string name="hide_launcher_top_shadow_title">Ocultar sombra superior</string>
     <string name="hide_launcher_top_shadow_desc">Eliminar sombra superior de la pantalla de inicio</string>
+    <string name="quick_launch_title">Quick Launch</string>
+    <string name="quick_launch_desc">Launch apps directly from search by pressing enter</string>
     <string name="app_drawer_icon_labels_title">Etiquetas de icono en el cajón de aplicaciones</string>
     <string name="disable_recents_live_tile_title">Desactivar mosaico en vivo recientes</string>
     <string name="disable_recents_live_tile_desc">Desactivar desenfoque si la pantalla de recientes es problemática</string>

@@ -55,6 +55,8 @@
     <string name="hide_launcher_statusbar_desc">Schnelleinstellungsfeld einmal ausklappen, wenn die Statusleiste nicht ausgeblendet ist</string>
     <string name="hide_launcher_top_shadow_title">Obere Schatten ausblenden</string>
     <string name="hide_launcher_top_shadow_desc">Den oberen Schatten vom Startbildschirm entfernen</string>
+    <string name="quick_launch_title">Quick Launch</string>
+    <string name="quick_launch_desc">Launch apps directly from search by pressing enter</string>
     <string name="app_drawer_icon_labels_title">App Icon Beschriftung in der App-Übersicht</string>
     <string name="disable_recents_live_tile_title">Live-Kachel deaktivieren</string>
     <string name="disable_recents_live_tile_desc">Live-Kachel deaktivieren, wenn der Anwendungsverlauf fehlerhaft ist</string>

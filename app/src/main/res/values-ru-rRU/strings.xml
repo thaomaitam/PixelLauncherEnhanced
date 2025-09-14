@@ -55,6 +55,8 @@
     <string name="hide_launcher_statusbar_desc">Раскроет панель быстрых настроек, если строка состояния не скрыта</string>
     <string name="hide_launcher_top_shadow_title">Скрыть тень</string>
     <string name="hide_launcher_top_shadow_desc">Удаляет верхнюю тень с главного экрана</string>
+    <string name="quick_launch_title">Quick Launch</string>
+    <string name="quick_launch_desc">Launch apps directly from search by pressing enter</string>
     <string name="app_drawer_icon_labels_title">Подпись иконок в меню приложений</string>
     <string name="disable_recents_live_tile_title">Отключить живую плитку в недавних</string>
     <string name="disable_recents_live_tile_desc">Отключите живую плитку, если экран недавних глючит</string>

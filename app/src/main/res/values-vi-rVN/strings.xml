@@ -55,6 +55,8 @@
     <string name="hide_launcher_statusbar_desc">Mở rộng thanh điều hướng nếu thanh trạng thái không được ẩn</string>
     <string name="hide_launcher_top_shadow_title">Ẩn bóng ở trên cùng</string>
     <string name="hide_launcher_top_shadow_desc">Xoá bóng ở trên cùng trong màn hình chính</string>
+    <string name="quick_launch_title">Quick Launch</string>
+    <string name="quick_launch_desc">Launch apps directly from search by pressing enter</string>
     <string name="app_drawer_icon_labels_title">Tên ứng dụng trong ngăn kéo ứng dụng</string>
     <string name="disable_recents_live_tile_title">Vô hiệu hoá live tile trong phần đa nhiệm</string>
     <string name="disable_recents_live_tile_desc">Vô hiệu hoá live tile trong phần đa nhiệm nếu nó gây ra lỗi</string>
