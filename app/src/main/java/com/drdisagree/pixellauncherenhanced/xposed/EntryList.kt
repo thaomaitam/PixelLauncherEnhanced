@@ -3,6 +3,8 @@ package com.drdisagree.pixellauncherenhanced.xposed
 import com.drdisagree.pixellauncherenhanced.data.common.Constants.LAUNCHER3_PACKAGE
 import com.drdisagree.pixellauncherenhanced.data.common.Constants.PIXEL_LAUNCHER_PACKAGE
 import com.drdisagree.pixellauncherenhanced.xposed.mods.ClearAllButton
+import com.drdisagree.pixellauncherenhanced.xposed.mods.DarkPageIndicator
+import com.drdisagree.pixellauncherenhanced.xposed.mods.DarkStatusbar
 import com.drdisagree.pixellauncherenhanced.xposed.mods.DrawerSearchbar
 import com.drdisagree.pixellauncherenhanced.xposed.mods.FreeformMod
 import com.drdisagree.pixellauncherenhanced.xposed.mods.GestureMod
@@ -53,7 +55,9 @@ object EntryList {
         ShortcutBadge::class.java,
         WallpaperZoom::class.java,
         QuickLaunch::class.java,
-        TaskbarHandle::class.java
+        TaskbarHandle::class.java,
+        DarkStatusbar::class.java,
+        DarkPageIndicator::class.java,
     )
 
     fun getEntries(packageName: String): ArrayList<Class<out ModPack>> {
